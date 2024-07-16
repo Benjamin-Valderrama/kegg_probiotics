@@ -47,7 +47,7 @@ where:
   human-friendly way (not used in the script) \[optional colum\].
 - `carbohydrate_kegg_id` ID of the carbohydrate (or a subunit within a
   polymer) used in the KEGG db for its identification.
-- `carbohydrate_name` ECs of enzymes known to interact with the
+- `enzyme` ECs of enzymes known to interact with the
   carbohydrate of interest \[optional column\].
 
 ## Output example
