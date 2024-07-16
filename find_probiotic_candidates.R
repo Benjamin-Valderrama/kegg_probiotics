@@ -40,13 +40,13 @@ target_carbohydrates <- read_csv(file = "inputs/carbohydrates_and_degrading_enzy
   filter(!is.na(carbohydrate_kegg_id))
 
 
-ec_to_ko <- read_delim("inputs/ec_to_ko_map.txt", delim = " ") %>% 
+ec_to_ko <- read_delim("internal_files/ec_to_ko_map.txt", delim = " ") %>% 
   rename_with(.cols = everything(), .fn = ~paste0(., "_code")) %>% 
   mutate(across(.cols = everything(), 
                 .fns = ~gsub(x = ., pattern = "ec:|ko:", replacement = "")))
 
 
-microorganism_table <- read_tsv(file = "inputs/kegg_organisms.txt", col_names = c("t_code", "abbreviation", "organism", "taxonomy")) %>% 
+microorganism_table <- read_tsv(file = "internal_files/kegg_organisms.txt", col_names = c("t_code", "abbreviation", "organism", "taxonomy")) %>% 
   filter(!grepl(x = taxonomy, pattern = "Eukaryotes"))
 
 
