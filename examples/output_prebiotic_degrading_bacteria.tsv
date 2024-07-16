@@ -1,0 +1,7 @@
+carbohydrate_name	carbohydrate_kegg_id	enzyme	rx	definition	ec	ko	abbreviation	t_code	organism	taxonomy
+Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan	C01889	3.2.1.55	NA	NA	3.2.1.55	K01209	esa	T00586	Cronobacter sakazakii ATCC BAA-894	Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Cronobacter;sakazakii ATCC BAA-894
+Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan	C01889	3.2.1.55	NA	NA	3.2.1.55	K01209	csk	T02119	Cronobacter sakazakii ES15	Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Cronobacter;sakazakii ES15
+Chitooligosaccharides (COS) : Chitositan	C00734	NA	R02333	Chitin + n H2O <=> Chitosan + n Acetate	3.5.1.41	K01452	bcr	T00799	Bacillus cereus AH187	Prokaryotes;Bacteria;Firmicutes - Bacilli;Bacillus;cereus AH187
+Chitooligosaccharides (COS) : Chitositan	C00734	NA	R02333	Chitin + n H2O <=> Chitosan + n Acetate	3.5.1.41	K01452	btk	T00179	Bacillus thuringiensis serovar konkukian 97-27	Prokaryotes;Bacteria;Firmicutes - Bacilli;Bacillus;thuringiensis serovar konkukian 97-27
+Fructooligosaccharide : Sucrose	C00089	NA	R00801	Sucrose + H2O <=> D-Fructose + D-Glucose	3.2.1.10	K01182	kpe	T00772	Klebsiella variicola 342	Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Klebsiella;variicola 342
+Fructooligosaccharide : Sucrose	C00089	NA	R00801	Sucrose + H2O <=> D-Fructose + D-Glucose	3.2.1.10	K01182	kpk	T03368	Klebsiella variicola KP5-1	Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Klebsiella;variicola KP5-1
