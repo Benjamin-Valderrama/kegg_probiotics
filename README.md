@@ -9,7 +9,8 @@
 The goal of kegg probiotics is to leverage the data available in the
 [KEGG database](https://www.genome.jp/kegg/) to make finding bacterial
 genomes with potential to degrade carbohydrates of interest while
-metabolising neuroactive compounds an easier task. It was successfully
+metabolising neuroactive compounds an easier task. To do so, here we
+share the script `find_probiotic_candidates.R`, which was successfully
 used to produce the *in-silico* analysis conducted in the published
 article: [Paper name](link%20to%20paper).
 
@@ -56,14 +57,14 @@ There are two main outputs produced by the script.
 1)  A tabular output with the bacterial genomes showing enzymes capable
     of degrading the carbohydrates of interest
 
-| carbohydrate_name                                   | carbohydrate_kegg_id | enzyme   | rx     | definition                                 | ec       | ko     | abbreviation | t_code | organism                                       | taxonomy                                                                                     |
-|:----------------------------------------------------|:---------------------|:---------|:-------|:-------------------------------------------|:---------|:-------|:-------------|:-------|:-----------------------------------------------|:---------------------------------------------------------------------------------------------|
-| Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan | C01889               | 3.2.1.55 | NA     | NA                                         | 3.2.1.55 | K01209 | esa          | T00586 | Cronobacter sakazakii ATCC BAA-894             | Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Cronobacter;sakazakii ATCC BAA-894 |
-| Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan | C01889               | 3.2.1.55 | NA     | NA                                         | 3.2.1.55 | K01209 | csk          | T02119 | Cronobacter sakazakii ES15                     | Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Cronobacter;sakazakii ES15         |
-| Chitooligosaccharides (COS) : Chitositan            | C00734               | NA       | R02333 | Chitin + n H2O \<=\> Chitosan + n Acetate  | 3.5.1.41 | K01452 | bcr          | T00799 | Bacillus cereus AH187                          | Prokaryotes;Bacteria;Firmicutes - Bacilli;Bacillus;cereus AH187                              |
-| Chitooligosaccharides (COS) : Chitositan            | C00734               | NA       | R02333 | Chitin + n H2O \<=\> Chitosan + n Acetate  | 3.5.1.41 | K01452 | btk          | T00179 | Bacillus thuringiensis serovar konkukian 97-27 | Prokaryotes;Bacteria;Firmicutes - Bacilli;Bacillus;thuringiensis serovar konkukian 97-27     |
-| Fructooligosaccharide : Sucrose                     | C00089               | NA       | R00801 | Sucrose + H2O \<=\> D-Fructose + D-Glucose | 3.2.1.10 | K01182 | kpe          | T00772 | Klebsiella variicola 342                       | Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Klebsiella;variicola 342           |
-| Fructooligosaccharide : Sucrose                     | C00089               | NA       | R00801 | Sucrose + H2O \<=\> D-Fructose + D-Glucose | 3.2.1.10 | K01182 | kpk          | T03368 | Klebsiella variicola KP5-1                     | Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Klebsiella;variicola KP5-1         |
+| carbohydrate_name                                   | carbohydrate_kegg_id | rx     | definition                                 | ec       | ko     | abbreviation | t_code | organism                                       | taxonomy                                                                                   |
+|:----------------------------------------------------|:---------------------|:-------|:-------------------------------------------|:---------|:-------|:-------------|:-------|:-----------------------------------------------|:-------------------------------------------------------------------------------------------|
+| Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan | C01889               | NA     | NA                                         | 3.2.1.55 | K01209 | esa          | T00586 | Cronobacter sakazakii ATCC BAA-894             | prokaryotes_bacteria_gammaproteobacteria_enterobacteria_cronobacter_sakazakii_atcc_baa-894 |
+| Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan | C01889               | NA     | NA                                         | 3.2.1.55 | K01209 | csk          | T02119 | Cronobacter sakazakii ES15                     | prokaryotes_bacteria_gammaproteobacteria_enterobacteria_cronobacter_sakazakii_es15         |
+| Chitooligosaccharides (COS) : Chitositan            | C00734               | R02333 | Chitin + n H2O \<=\> Chitosan + n Acetate  | 3.5.1.41 | K01452 | bcr          | T00799 | Bacillus cereus AH187                          | prokaryotes_bacteria_firmicutes_bacilli_bacillus_cereus_ah187                              |
+| Chitooligosaccharides (COS) : Chitositan            | C00734               | R02333 | Chitin + n H2O \<=\> Chitosan + n Acetate  | 3.5.1.41 | K01452 | btk          | T00179 | Bacillus thuringiensis serovar konkukian 97-27 | prokaryotes_bacteria_firmicutes_bacilli_bacillus_thuringiensis_serovar_konkukian_97-27     |
+| Fructooligosaccharide : Sucrose                     | C00089               | R00801 | Sucrose + H2O \<=\> D-Fructose + D-Glucose | 3.2.1.10 | K01182 | kpe          | T00772 | Klebsiella variicola 342                       | prokaryotes_bacteria_gammaproteobacteria_enterobacteria_klebsiella_variicola_342           |
+| Fructooligosaccharide : Sucrose                     | C00089               | R00801 | Sucrose + H2O \<=\> D-Fructose + D-Glucose | 3.2.1.10 | K01182 | kpk          | T03368 | Klebsiella variicola KP5-1                     | prokaryotes_bacteria_gammaproteobacteria_enterobacteria_klebsiella_variicola_kp5-1         |
 
 2)  A tabular output with the bacterial genomes showing enzymes involved
     in the metabolism of neuroactive compounds

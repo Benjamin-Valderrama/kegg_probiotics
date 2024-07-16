@@ -27,7 +27,7 @@ example_output_bacterial_neuroactive_potential <- read_tsv("examples/output_bact
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of kegg probiotics is to leverage the data available in the [KEGG database](https://www.genome.jp/kegg/) to make finding bacterial genomes with potential to degrade carbohydrates of interest while metabolising neuroactive compounds an easier task. It was successfully used to produce the *in-silico* analysis conducted in the published article: [Paper name](link to paper).
+The goal of kegg probiotics is to leverage the data available in the [KEGG database](https://www.genome.jp/kegg/) to make finding bacterial genomes with potential to degrade carbohydrates of interest while metabolising neuroactive compounds an easier task. To do so, here we share the script `find_probiotic_candidates.R`, which was successfully used to produce the *in-silico* analysis conducted in the published article: [Paper name](link to paper).
 
 ## Overview
 
