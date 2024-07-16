@@ -283,28 +283,6 @@ bacterial_neuroactive_potential <- omixer_input %>%
 
 
 
-# # infer GBMs from genomic content
-# GBM <- rpm(x = omixer_input,
-#            module.db = db, 
-#            annotation = 1,
-#            minimum.coverage = 1)
-# 
-# # get the abundances of the modules
-# neuroactive_potential_bacteria <- GBM@abundance
-# 
-# modules_names <- GBM@db@module.names %>% 
-#   as.data.frame() %>% 
-#   rownames_to_column("code") %>% 
-#   mutate(full_module = paste0(code, "|", V2)) %>% 
-#   filter(code %in% GBM@annotation$Module) %>% 
-#   pull(full_module)
-# 
-# # rename the rownames with human-redable pathways
-# rownames(neuroactive_potential_bacteria) <- modules_names
-# 
-# # round the GBM values to the floor
-# neuroactive_potential_bacteria <- neuroactive_potential_bacteria %>% floor()
-
 
 
 
