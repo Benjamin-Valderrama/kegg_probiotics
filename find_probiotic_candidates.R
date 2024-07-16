@@ -211,7 +211,9 @@ prebiotic_degrading_bacteria <- prebiotic_degrading_enzymes %>%
 
 # fix tanomy annotation to have the names at all levels
 prebiotic_degrading_bacteria <- prebiotic_degrading_bacteria %>% 
-  mutate(taxonomy = paste(taxonomy, word(organism, start = 2, end = -1, sep = " "), sep = ";"))
+  mutate(taxonomy = paste(taxonomy, word(organism, start = 2, end = -1, sep = " "), sep = "_"),
+         taxonomy = gsub(x = taxonomy, pattern = " - |;| ", replacement = "_"),
+         taxonomy = tolower(taxonomy))
 
 
 
