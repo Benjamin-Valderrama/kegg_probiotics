@@ -117,6 +117,58 @@ abbreviation_from_ko <- function(ko){
 }
 
 
+genome_wise_omixerRpm <- function(x, 
+                                  module.db, 
+                                  minimum.coverage, ...){
+  
+  
+  # for this use case, annotation will always be 1, as we are analysed modules in single genomes
+  genomes_neuroactive_potentials <- data.frame()
+  
+  # run rpm for each column (genome) independently
+  for(col in 2:ncol(x)){
+    
+    genome_GBM <- rpm(x = x[,c(1, col)], 
+                       module.db = module.db,
+                       minimum.coverage = minimum.coverage)
+    
+    
+    # get the abundances of the modules
+    genome_neuroactive_potential <- genome_GBM@abundance
+    
+    
+    genome_modules_names <- genome_GBM@db@module.names %>%
+      as.data.frame() %>%
+      rownames_to_column("code") %>%
+      mutate(full_module = paste0(code, "|", V2)) %>%
+      filter(code %in% genome_GBM@annotation$Module) %>%
+      pull(full_module)
+    
+    
+    
+    # rename the rownames with human-redable pathways
+    rownames(genome_neuroactive_potential) <- genome_modules_names
+      
+    
+     
+    # merge the neuroactive potential of the current genome with the dataframe
+    # storing the neuroactive potentials of the previously analysed genomes
+    genomes_neuroactive_potentials <- merge(x = genome_neuroactive_potential,
+                                            y = genomes_neuroactive_potentials,
+                                            by = 0, all = TRUE) %>% 
+                                      transform(row.names = Row.names,
+                                                Row.names = NULL)
+    
+    
+    # change NAs to 0
+    genomes_neuroactive_potentials[is.na(genomes_neuroactive_potentials)] <- 0
+    
+  }
+  
+  return(genomes_neuroactive_potentials)
+}
+
+
 
 # find probiotic candidates based on target prebiotics --------------------
 
@@ -216,34 +268,42 @@ omixer_input <- bacterial_genomes %>%
 omixer_input <- janitor::clean_names(omixer_input)
 
 
-# Determine GBM potential of probiotics -----------------------------------
+
+# Determine neuroactive potential of probiotics ---------------------------
 
 library(omixerRpm)
 
 # load the database with the bacterial neuroactive pathways
 db <- omixerRpm::loadDB(omixerRpm::listDB()[grepl(x = omixerRpm::listDB(), pattern = "GBMs")])
 
-# infer GBMs from genomic content
-GBM <- rpm(x = omixer_input,
-           module.db = db, 
-           annotation = 1,
-           minimum.coverage = 1)
 
-# get the abundances of the modules
-neuroactive_potential_bacteria <- GBM@abundance
+bacterial_neuroactive_potential <- omixer_input %>% 
+  genome_wise_omixerRpm(x = ., module.db = db, minimum.coverage = 1)
 
-modules_names <- GBM@db@module.names %>% 
-  as.data.frame() %>% 
-  rownames_to_column("code") %>% 
-  mutate(full_module = paste0(code, "|", V2)) %>% 
-  filter(code %in% GBM@annotation$Module) %>% 
-  pull(full_module)
 
-# rename the rownames with human-redable pathways
-rownames(neuroactive_potential_bacteria) <- modules_names
 
-# round the GBM values to the floor
-neuroactive_potential_bacteria <- neuroactive_potential_bacteria %>% floor()
+
+# # infer GBMs from genomic content
+# GBM <- rpm(x = omixer_input,
+#            module.db = db, 
+#            annotation = 1,
+#            minimum.coverage = 1)
+# 
+# # get the abundances of the modules
+# neuroactive_potential_bacteria <- GBM@abundance
+# 
+# modules_names <- GBM@db@module.names %>% 
+#   as.data.frame() %>% 
+#   rownames_to_column("code") %>% 
+#   mutate(full_module = paste0(code, "|", V2)) %>% 
+#   filter(code %in% GBM@annotation$Module) %>% 
+#   pull(full_module)
+# 
+# # rename the rownames with human-redable pathways
+# rownames(neuroactive_potential_bacteria) <- modules_names
+# 
+# # round the GBM values to the floor
+# neuroactive_potential_bacteria <- neuroactive_potential_bacteria %>% floor()
 
 
 
@@ -252,10 +312,10 @@ neuroactive_potential_bacteria <- neuroactive_potential_bacteria %>% floor()
 
 if(dir.exists("outputs")){
   write_tsv(x = neuroactive_potential_bacteria,
-            file = "outputs/neuroactive_potential_bacteria.tsv")
+            file = "outputs/bacterial_neuroactive_potential")
 } else {
   
   dir.create("outputs")
   write_tsv(x = neuroactive_potential_bacteria,
-            file = "outputs/neuroactive_potential_bacteria.tsv")
+            file = "outputs/bacterial_neuroactive_potential")
 }
