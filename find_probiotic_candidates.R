@@ -187,7 +187,7 @@ prebiotic_degrading_enzymes <- target_carbohydrates %>%
   separate_longer_delim(cols = ec, delim = ";") %>%
   
   # merge ECs got from the enzymes and those manually annotated
-  mutate(ec = coalesce(enzyme, ec)) %>% 
+  mutate(ec = coalesce(enzyme, ec), .keep = "unused") %>% 
   
   # get the KO of the enzymes involved in those reactions
   mutate(ko =  purrr::map_chr(.x = ec,
