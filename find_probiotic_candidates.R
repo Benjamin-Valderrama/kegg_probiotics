@@ -311,11 +311,11 @@ bacterial_neuroactive_potential <- omixer_input %>%
 # neuroactive potential of prebiotic-degrading taxa -----------------------
 
 if(dir.exists("outputs")){
-  write_tsv(x = neuroactive_potential_bacteria,
-            file = "outputs/bacterial_neuroactive_potential")
+  write_tsv(x = bacterial_neuroactive_potential,
+            file = "outputs/bacterial_neuroactive_potential.tsv")
 } else {
   
   dir.create("outputs")
-  write_tsv(x = neuroactive_potential_bacteria,
-            file = "outputs/bacterial_neuroactive_potential")
+  write_tsv(x = bacterial_neuroactive_potential,
+            file = "outputs/bacterial_neuroactive_potential.tsv")
 }
