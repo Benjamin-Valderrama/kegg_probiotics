@@ -43,7 +43,7 @@ The scripts starts from a list of KEGG compound IDs of carbohydrates (or interna
 
 The scripts takes a tabular input data frame in the following form:
 
-```{r show input}
+```{r show input, echo = FALSE}
 knitr::kable(head(example_input_carbohydrates))
 
 
@@ -63,14 +63,14 @@ There are two main outputs produced by the script.
 
 1)    A tabular output with the bacterial genomes showing enzymes capable of degrading the carbohydrates of interest
 
-```{r show carbohydrate output}
+```{r show carbohydrate output, echo = FALSE}
 knitr::kable(head(example_output_carb_degrading_bacteria))
 
 ```
 
 2)    A tabular output with the bacterial genomes showing enzymes involved in the metabolism of neuroactive compounds
 
-```{r show neuroactive output}
+```{r show neuroactive output, echo = FALSE}
 knitr::kable(head(example_output_bacterial_neuroactive_potential))
 
 ```

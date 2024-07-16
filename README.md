@@ -31,10 +31,6 @@ steps using the information stored in KEGG:
 
 The scripts takes a tabular input data frame in the following form:
 
-``` r
-knitr::kable(head(example_input_carbohydrates))
-```
-
 | carbohydrate_name                                   | carbohydrate_kegg_id | enzyme   |
 |:----------------------------------------------------|:---------------------|:---------|
 | 1-Kestose                                           | C03661               | NA       |
@@ -60,10 +56,6 @@ There are two main outputs produced by the script.
 1)  A tabular output with the bacterial genomes showing enzymes capable
     of degrading the carbohydrates of interest
 
-``` r
-knitr::kable(head(example_output_carb_degrading_bacteria))
-```
-
 | carbohydrate_name                                   | carbohydrate_kegg_id | enzyme   | rx     | definition                                 | ec       | ko     | abbreviation | t_code | organism                                       | taxonomy                                                                                     |
 |:----------------------------------------------------|:---------------------|:---------|:-------|:-------------------------------------------|:---------|:-------|:-------------|:-------|:-----------------------------------------------|:---------------------------------------------------------------------------------------------|
 | Arabinoxylan‐oligosaccharides (AXOS) : Arabinoxylan | C01889               | 3.2.1.55 | NA     | NA                                         | 3.2.1.55 | K01209 | esa          | T00586 | Cronobacter sakazakii ATCC BAA-894             | Prokaryotes;Bacteria;Gammaproteobacteria - Enterobacteria;Cronobacter;sakazakii ATCC BAA-894 |
@@ -75,10 +67,6 @@ knitr::kable(head(example_output_carb_degrading_bacteria))
 
 2)  A tabular output with the bacterial genomes showing enzymes involved
     in the metabolism of neuroactive compounds
-
-``` r
-knitr::kable(head(example_output_bacterial_neuroactive_potential))
-```
 
 | gbm                             | prokaryotes_bacteria_bacteria_incertae_sedis_bacteria_candidate_phyla_division_tm6_bacterium_gw2011_gwf2_28_16 | prokaryotes_bacteria_bacteria_incertae_sedis_chazhemtobacterium_chazhemtobacterium_aquaticus | prokaryotes_bacteria_firmicutes_clostridia_alkaliphilus_oremlandii | prokaryotes_bacteria_firmicutes_others_veillonella_rodentium | prokaryotes_bacteria_firmicutes_others_sporanaerobacter_sp_jn_28 | prokaryotes_bacteria_firmicutes_clostridia_aminipila_terrae |
 |:--------------------------------|---------------------------------------------------------------------------------------------------------------:|---------------------------------------------------------------------------------------------:|-------------------------------------------------------------------:|-------------------------------------------------------------:|-----------------------------------------------------------------:|------------------------------------------------------------:|
