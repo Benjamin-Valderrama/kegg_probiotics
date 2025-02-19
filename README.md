@@ -12,7 +12,7 @@ genomes with potential to degrade carbohydrates of interest while
 metabolising neuroactive compounds an easier task. To do so, here we
 share the script `find_probiotic_candidates.R`, which was successfully
 used to produce the *in-silico* analysis conducted in the published
-article: [Paper name](link%20to%20paper).
+article: [From in silico screening to in vivo validation in zebrafish – a framework for reeling in the right psychobiotics](https://pubs.rsc.org/en/content/articlelanding/2025/fo/d4fo03932g).
 
 ## Overview
 
